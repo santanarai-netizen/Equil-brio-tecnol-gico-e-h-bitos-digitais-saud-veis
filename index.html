@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>🌱 Bem-estar Digital · Uso Consciente</title>
+  <!-- Font Awesome Icons (acessibilidade e cores) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== style.css (integrado) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f9f3e6 0%, #ffe9d6 100%);
+      min-height: 100vh;
+      padding: 1.5rem 1rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1300px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 48px 48px 32px 32px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06);
+      transition: all 0.2s;
+    }
+
+    /* cabeçalho animado */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2b7a4b, #4caf7a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { text-shadow: 0 0 2px rgba(44, 160, 90, 0.3); }
+      100% { text-shadow: 0 0 20px rgba(44, 160, 90, 0.5); }
+    }
+
+    .header i {
+      font-size: 2.6rem;
+      color: #2b7a4b;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .accessibility-tools {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .accessibility-tools button {
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      border: 2px solid #4caf7a;
+      border-radius: 60px;
+      padding: 0.6rem 1.2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1a4d2e;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .accessibility-tools button:hover {
+      background: #4caf7a;
+      color: white;
+      border-color: #2b7a4b;
+      transform: scale(1.02);
+    }
+
+    .accessibility-tools button i {
+      font-size: 1.2rem;
+    }
+
+    /* grade responsiva */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem 1.8rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 36px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 30, 20, 0.06);
+      transition: all 0.25s;
+      border: 1px solid rgba(76, 175, 122, 0.2);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #4caf7a;
+      box-shadow: 0 18px 36px rgba(44, 160, 90, 0.15);
+    }
+
+    .card i {
+      font-size: 2.8rem;
+      color: #2b7a4b;
+      margin-bottom: 0.6rem;
+      background: #e6f5ec;
+      padding: 0.6rem;
+      border-radius: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #1d3b2b;
+      margin-bottom: 0.25rem;
+    }
+
+    .card p {
+      color: #2f4d3c;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .emoji-big {
+      font-size: 3rem;
+      margin: 0.5rem 0;
+    }
+
+    /* curiosidades */
+    .curiosidades {
+      background: #d9f0e3;
+      border-radius: 40px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 2.5rem;
+      border-left: 12px solid #2b7a4b;
+      transition: 0.2s;
+      animation: fadeSlide 0.8s;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateX(-16px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .curiosidades h2 {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #154d2c;
+    }
+
+    .curiosidades ul {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+    }
+
+    .curiosidades li {
+      background: white;
+      padding: 0.6rem 1.6rem 0.6rem 1.2rem;
+      border-radius: 60px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      border: 1px solid #b7dfcb;
+    }
+
+    .curiosidades li i {
+      color: #2b7a4b;
+      font-size: 1.3rem;
+    }
+
+    /* quiz */
+    .quiz-box {
+      background: #fefcf5;
+      border-radius: 40px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 1rem;
+      box-shadow: inset 0 0 0 1px #cfe3d8;
+    }
+
+    .quiz-box h2 {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #1f5437;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 1rem 0 1.2rem;
+      color: #143d26;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .options label {
+      background: #ecf9f1;
+      padding: 0.6rem 1.6rem;
+      border-radius: 60px;
+      border: 2px solid transparent;
+      transition: 0.15s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.05rem;
+    }
+
+    .options label:hover {
+      background: #c8ebd9;
+      border-color: #4caf7a;
+    }
+
+    .options input[type="radio"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: #2b7a4b;
+      cursor: pointer;
+    }
+
+    .quiz-feedback {
+      background: #e3f0e9;
+      border-radius: 30px;
+      padding: 0.8rem 1.8rem;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .btn-quiz {
+      background: #2b7a4b;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 0.8rem 2.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(43, 122, 75, 0.3);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .btn-quiz:hover {
+      background: #1f5f3b;
+      transform: scale(1.02);
+    }
+
+    /* imagens / ilustrações animadas */
+    .img-destaque {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .img-destaque div {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 60px;
+      padding: 0.8rem 1.8rem 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+      border: 2px solid #b7dfcb;
+      animation: softBounce 4s infinite alternate;
+    }
+
+    @keyframes softBounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-6px); }
+    }
+
+    .img-destaque i {
+      font-size: 3.4rem;
+      color: #236b44;
+    }
+
+    /* rodapé */
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #2d5b41;
+      border-top: 2px dashed #88c7ab;
+      padding-top: 1.8rem;
+      width: 100%;
+    }
+
+    /* acessibilidade: alto contraste e fonte */
+    .high-contrast {
+      background: #0f1f17 !important;
+      color: #f1ffe7 !important;
+    }
+    .high-contrast .container {
+      background: #1a3326 !important;
+      color: #e7ffe0 !important;
+    }
+    .high-contrast .card {
+      background: #264d36 !important;
+      border-color: #8bc3a5 !important;
+      color: #f0fff0 !important;
+    }
+    .high-contrast .card p, .high-contrast .card h3 {
+      color: #f0fff0 !important;
+    }
+    .high-contrast .curiosidades {
+      background: #1b452f !important;
+      border-left-color: #b0e6c9 !important;
+    }
+    .high-contrast .curiosidades li {
+      background: #2b5f42 !important;
+      color: white !important;
+    }
+    .high-contrast .quiz-box {
+      background: #1b3d2b !important;
+    }
+    .high-contrast .options label {
+      background: #326b4a !important;
+      color: white !important;
+    }
+    .high-contrast .btn-quiz {
+      background: #7bc99c !important;
+      color: #0a1f13 !important;
+    }
+
+    .font-large {
+      font-size: 1.4rem !important;
+      line-height: 1.6 !important;
+    }
+    .font-large .card p, .font-large .question, .font-large li {
+      font-size: 1.5rem !important;
+    }
+
+    /* responsividade extra */
+    @media (max-width: 640px) {
+      .container { padding: 1.5rem 1rem; }
+      .header h1 { font-size: 1.8rem; }
+      .accessibility-tools button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+    }
+    @media (min-width: 1200px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="appContainer">
+  <!-- cabeçalho -->
+  <header class="header">
+    <h1><i class="fas fa-seedling"></i> bem-estar digital</h1>
+    <div class="accessibility-tools" role="toolbar" aria-label="ferramentas de acessibilidade">
+      <button id="contrastBtn" aria-label="alto contraste"><i class="fas fa-circle"></i> Contraste</button>
+      <button id="fontBtn" aria-label="aumentar fonte"><i class="fas fa-font"></i> Fonte +</button>
+    </div>
+  </header>
+
+  <!-- imagens / ilustrações animadas -->
+  <div class="img-destaque">
+    <div><i class="fas fa-mobile-alt"></i> <span>Uso consciente</span></div>
+    <div><i class="fas fa-brain"></i> <span>Saúde digital</span></div>
+    <div><i class="fas fa-hand-holding-heart"></i> <span>Equilíbrio</span></div>
+  </div>
+
+  <!-- cards principais -->
+  <div class="grid">
+    <div class="card"><i class="fas fa-clock"></i><h3> Tempo de tela</h3><p>Defina limites diários e faça pausas a cada 50 minutos. Seu cérebro agradece!</p><span class="emoji-big">⏳</span></div>
+    <div class="card"><i class="fas fa-moon"></i><h3> Modo noturno</h3><p>Luz azul atrapalha o sono. Ative o filtro de luz noturna após às 20h.</p><span class="emoji-big">🌙</span></div>
+    <div class="card"><i class="fas fa-users"></i><h3> Conexão real</h3><p>Priorize interações presenciais. O digital é ferramenta, não substituto.</p><span class="emoji-big">🤝</span></div>
+  </div>
+
+  <!-- curiosidades -->
+  <section class="curiosidades" aria-label="curiosidades sobre bem-estar digital">
+    <h2><i class="fas fa-lightbulb"></i> Curiosidades</h2>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> 90% das pessoas checam o celular nos primeiros 15 minutos após acordar.</li>
+      <li><i class="fas fa-check-circle"></i> O uso excessivo de redes pode aumentar ansiedade em até 30%.</li>
+      <li><i class="fas fa-check-circle"></i> Fazer pausas ativas reduz a fadiga digital e melhora a criatividade.</li>
+      <li><i class="fas fa-check-circle"></i> O cérebro leva ~23 minutos para retomar o foco após uma interrupção.</li>
+    </ul>
+  </section>
+
+  <!-- QUIZ interativo -->
+  <div class="quiz-box" role="form" aria-label="quiz sobre uso consciente">
+    <h2><i class="fas fa-question-circle"></i> Quiz</h2>
+    <div class="question" id="questionText">Qual é a recomendação geral para pausas durante o uso de telas?</div>
+    <div class="options" id="optionsContainer" role="radiogroup">
+      <label><input type="radio" name="quiz" value="0"> 10 min a cada 2h</label>
+      <label><input type="radio" name="quiz" value="1"> 5 min a cada 30 min</label>
+      <label><input type="radio" name="quiz" value="2"> 15 min a cada 1h</label>
+      <label><input type="radio" name="quiz" value="3"> 20 min a cada 3h</label>
+    </div>
+    <button class="btn-quiz" id="submitQuiz"><i class="fas fa-check"></i> Responder</button>
+    <div class="quiz-feedback" id="quizFeedback">👆 Escolha uma opção e clique em responder.</div>
+  </div>
+
+  <footer class="footer">
+    <p><i class="fas fa-leaf" style="color:#2b7a4b;"></i>  Bem-estar digital · uso consciente · projeto escolar 2026</p>
+    <p style="font-size:0.9rem; opacity:0.8;">acessibilidade e responsividade para todos</p>
+  </footer>
+</div>
+
+<script>
+  // ===== script.js =====
+  (function() {
+    "use strict";
+
+    // --- elementos ---
+    const container = document.getElementById('appContainer');
+    const contrastBtn = document.getElementById('contrastBtn');
+    const fontBtn = document.getElementById('fontBtn');
+    const quizFeedback = document.getElementById('quizFeedback');
+    const submitBtn = document.getElementById('submitQuiz');
+    const options = document.querySelectorAll('input[name="quiz"]');
+
+    // --- alternância de alto contraste ---
+    contrastBtn.addEventListener('click', function() {
+      document.body.classList.toggle('high-contrast');
+      const isHighContrast = document.body.classList.contains('high-contrast');
+      contrastBtn.innerHTML = isHighContrast ? 
+        '<i class="fas fa-circle"></i> Contraste off' : 
+        '<i class="fas fa-circle"></i> Contraste';
+    });
+
+    // --- aumento de fonte (toggle) ---
+    fontBtn.addEventListener('click', function() {
+      document.body.classList.toggle('font-large');
+      const isLarge = document.body.classList.contains('font-large');
+      fontBtn.innerHTML = isLarge ? 
+        '<i class="fas fa-font"></i> Fonte normal' : 
+        '<i class="fas fa-font"></i> Fonte +';
+    });
+
+    // --- lógica do quiz (pergunta e resposta) ---
+    const questions = [
+      {
+        question: "Qual é a recomendação geral para pausas durante o uso de telas?",
+        options: ["10 min a cada 2h", "5 min a cada 30 min", "15 min a cada 1h", "20 min a cada 3h"],
+        correct: 1 // índice 1 = "5 min a cada 30 min"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+
+    function loadQuestion(index) {
+      const q = questions[index];
+      if (!q) return;
+      document.getElementById('questionText').textContent = q.question;
+      const labels = document.querySelectorAll('.options label');
+      labels.forEach((label, i) => {
+        const radio = label.querySelector('input[type="radio"]');
+        if (radio) {
+          radio.value = i;
+          label.childNodes[1]?.remove(); // remove texto antigo (opção)
+          label.appendChild(document.createTextNode(' ' + q.options[i]));
+          radio.checked = false;
+        }
+      });
+      quizFeedback.innerHTML = '👆 Escolha uma opção e clique em responder.';
+      quizFeedback.style.background = '#e3f0e9';
+    }
+
+    // carregar primeira pergunta
+    loadQuestion(currentQuestionIndex);
+
+    // submit quiz
+    submitBtn.addEventListener('click', function() {
+      const q = questions[currentQuestionIndex];
+      let selectedValue = null;
+      let selectedIndex = -1;
+      options.forEach((opt, idx) => {
+        if (opt.checked) {
+          selectedValue = opt.value;
+          selectedIndex = idx;
+        }
+      });
+
+      if (selectedValue === null) {
+        quizFeedback.innerHTML = '⚠️ Por favor, selecione uma alternativa.';
+        quizFeedback.style.background = '#fce4e4';
+        return;
+      }
+
+      const isCorrect = (parseInt(selectedValue) === q.correct);
+      const correctText = q.options[q.correct];
+
+      if (isCorrect) {
+        quizFeedback.innerHTML = `✅ Correto! A resposta é "${correctText}". Muito bem! 🎉`;
+        quizFeedback.style.background = '#c8f0d6';
+      } else {
+        quizFeedback.innerHTML = `❌ Não foi dessa vez. A resposta correta é "${correctText}". Tente novamente!`;
+        quizFeedback.style.background = '#fce4e4';
+      }
+
+      // desmarca para próxima tentativa
+      options.forEach(opt => opt.checked = false);
+    });
+
+    // (opcional) reset visual ao mudar de pergunta
+    // aqui temos apenas uma pergunta, mas mantemos o padrão
+
+    // ---- acessibilidade extra: navegação por teclado ----
+    document.querySelectorAll('button, input, .card').forEach(el => {
+      el.setAttribute('tabindex', '0');
+    });
+
+    // ---- animação de boas-vindas no console ----
+    console.log('🌿 Bem-estar digital · projeto acessível e responsivo');
+  })();
+</script>
+
+<!-- fallback para browsers antigos -->
+<noscript>
+  <div style="background:#ffe0b0; padding:1rem; border-radius:30px;">Seu navegador não suporta JavaScript, mas o conteúdo está disponível.</div>
+</noscript>
+</body>
+</html>
