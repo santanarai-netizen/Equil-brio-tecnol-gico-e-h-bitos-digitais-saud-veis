@@ -1,48 +1,45 @@
 // ===== script.js =====
 // Bem-estar digital · uso consciente
-// Acessibilidade, quiz e interatividade
+// Versão ampliada com imagens e mais interatividade
 
 (function() {
     "use strict";
 
-    // --- elementos DOM ---
-    const container = document.getElementById('appContainer');
+    // ---- elementos DOM ----
     const contrastBtn = document.getElementById('contrastBtn');
     const fontBtn = document.getElementById('fontBtn');
     const quizFeedback = document.getElementById('quizFeedback');
     const submitBtn = document.getElementById('submitQuiz');
     const options = document.querySelectorAll('input[name="quiz"]');
 
-    // --- alternância de alto contraste ---
+    // ---- alternância de alto contraste ----
     contrastBtn.addEventListener('click', function() {
         document.body.classList.toggle('high-contrast');
         const isHighContrast = document.body.classList.contains('high-contrast');
-        contrastBtn.innerHTML = isHighContrast ? 
-            '<i class="fas fa-circle"></i> Contraste off' : 
+        contrastBtn.innerHTML = isHighContrast ?
+            '<i class="fas fa-circle"></i> Contraste off' :
             '<i class="fas fa-circle"></i> Contraste';
     });
 
-    // --- aumento de fonte (toggle) ---
+    // ---- aumento de fonte (toggle) ----
     fontBtn.addEventListener('click', function() {
         document.body.classList.toggle('font-large');
         const isLarge = document.body.classList.contains('font-large');
-        fontBtn.innerHTML = isLarge ? 
-            '<i class="fas fa-font"></i> Fonte normal' : 
+        fontBtn.innerHTML = isLarge ?
+            '<i class="fas fa-font"></i> Fonte normal' :
             '<i class="fas fa-font"></i> Fonte +';
     });
 
-    // --- dados do quiz ---
-    const questions = [
-        {
-            question: "Qual é a recomendação geral para pausas durante o uso de telas?",
-            options: ["10 min a cada 2h", "5 min a cada 30 min", "15 min a cada 1h", "20 min a cada 3h"],
-            correct: 1 // índice 1 = "5 min a cada 30 min"
-        }
-    ];
+    // ---- dados do quiz ----
+    const questions = [{
+        question: "Qual é a recomendação geral para pausas durante o uso de telas?",
+        options: ["10 min a cada 2h", "5 min a cada 30 min", "15 min a cada 1h", "20 min a cada 3h"],
+        correct: 1 // índice 1 = "5 min a cada 30 min"
+    }];
 
     let currentQuestionIndex = 0;
 
-    // --- carregar pergunta ---
+    // ---- carregar pergunta ----
     function loadQuestion(index) {
         const q = questions[index];
         if (!q) return;
@@ -63,18 +60,16 @@
         quizFeedback.style.background = '#e3f0e9';
     }
 
-    // carregar primeira pergunta
+    // Carregar primeira pergunta
     loadQuestion(currentQuestionIndex);
 
-    // --- submit do quiz ---
+    // ---- submit do quiz ----
     submitBtn.addEventListener('click', function() {
         const q = questions[currentQuestionIndex];
         let selectedValue = null;
-        let selectedIndex = -1;
-        options.forEach((opt, idx) => {
+        options.forEach((opt) => {
             if (opt.checked) {
                 selectedValue = opt.value;
-                selectedIndex = idx;
             }
         });
 
@@ -95,15 +90,16 @@
             quizFeedback.style.background = '#fce4e4';
         }
 
-        // desmarca para próxima tentativa
+        // Desmarca para próxima tentativa
         options.forEach(opt => opt.checked = false);
     });
 
-    // --- acessibilidade extra: navegação por teclado ---
-    document.querySelectorAll('button, input, .card').forEach(el => {
+    // ---- acessibilidade: navegação por teclado ----
+    document.querySelectorAll('button, input, .card, .banner-item').forEach(el => {
         el.setAttribute('tabindex', '0');
     });
 
-    // --- mensagem no console ---
-    console.log('🌿 Bem-estar digital · projeto acessível e responsivo');
+    // ---- mensagem no console ----
+    console.log('🌿 Bem-estar digital · versão ampliada com imagens');
+
 })();
