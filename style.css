@@ -1,0 +1,406 @@
+/* ===== style.css ===== */
+/* Bem-estar digital · uso consciente */
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f9f3e6 0%, #ffe9d6 100%);
+    min-height: 100vh;
+    padding: 1.5rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 48px 48px 32px 32px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06);
+    transition: all 0.2s;
+}
+
+/* ===== cabeçalho ===== */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2b7a4b, #4caf7a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 2px rgba(44, 160, 90, 0.3); }
+    100% { text-shadow: 0 0 20px rgba(44, 160, 90, 0.5); }
+}
+
+.header i {
+    font-size: 2.6rem;
+    color: #2b7a4b;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== ferramentas de acessibilidade ===== */
+.accessibility-tools {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.accessibility-tools button {
+    background: #ffffffcc;
+    backdrop-filter: blur(2px);
+    border: 2px solid #4caf7a;
+    border-radius: 60px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a4d2e;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+}
+
+.accessibility-tools button:hover {
+    background: #4caf7a;
+    color: white;
+    border-color: #2b7a4b;
+    transform: scale(1.02);
+}
+
+.accessibility-tools button i {
+    font-size: 1.2rem;
+}
+
+/* ===== grade de cards ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem 1.8rem;
+    margin: 2.5rem 0 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 36px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 30, 20, 0.06);
+    transition: all 0.25s;
+    border: 1px solid rgba(76, 175, 122, 0.2);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #4caf7a;
+    box-shadow: 0 18px 36px rgba(44, 160, 90, 0.15);
+}
+
+.card i {
+    font-size: 2.8rem;
+    color: #2b7a4b;
+    margin-bottom: 0.6rem;
+    background: #e6f5ec;
+    padding: 0.6rem;
+    border-radius: 20px;
+}
+
+.card h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #1d3b2b;
+    margin-bottom: 0.25rem;
+}
+
+.card p {
+    color: #2f4d3c;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.card .emoji-big {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+/* ===== curiosidades ===== */
+.curiosidades {
+    background: #d9f0e3;
+    border-radius: 40px;
+    padding: 1.8rem 2rem;
+    margin: 2rem 0 2.5rem;
+    border-left: 12px solid #2b7a4b;
+    transition: 0.2s;
+    animation: fadeSlide 0.8s;
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateX(-16px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.curiosidades h2 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #154d2c;
+}
+
+.curiosidades ul {
+    list-style: none;
+    margin-top: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+}
+
+.curiosidades li {
+    background: white;
+    padding: 0.6rem 1.6rem 0.6rem 1.2rem;
+    border-radius: 60px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #b7dfcb;
+}
+
+.curiosidades li i {
+    color: #2b7a4b;
+    font-size: 1.3rem;
+}
+
+/* ===== quiz ===== */
+.quiz-box {
+    background: #fefcf5;
+    border-radius: 40px;
+    padding: 1.8rem 2rem;
+    margin: 2rem 0 1rem;
+    box-shadow: inset 0 0 0 1px #cfe3d8;
+}
+
+.quiz-box h2 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #1f5437;
+}
+
+.question {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 1rem 0 1.2rem;
+    color: #143d26;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.options label {
+    background: #ecf9f1;
+    padding: 0.6rem 1.6rem;
+    border-radius: 60px;
+    border: 2px solid transparent;
+    transition: 0.15s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.options label:hover {
+    background: #c8ebd9;
+    border-color: #4caf7a;
+}
+
+.options input[type="radio"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #2b7a4b;
+    cursor: pointer;
+}
+
+.quiz-feedback {
+    background: #e3f0e9;
+    border-radius: 30px;
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.btn-quiz {
+    background: #2b7a4b;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 0.8rem 2.8rem;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 8px 18px rgba(43, 122, 75, 0.3);
+    margin: 0.5rem 0 1rem;
+}
+
+.btn-quiz:hover {
+    background: #1f5f3b;
+    transform: scale(1.02);
+}
+
+/* ===== imagens / ilustrações animadas ===== */
+.img-destaque {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0 0.5rem;
+}
+
+.img-destaque div {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    border-radius: 60px;
+    padding: 0.8rem 1.8rem 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #b7dfcb;
+    animation: softBounce 4s infinite alternate;
+}
+
+@keyframes softBounce {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-6px); }
+}
+
+.img-destaque i {
+    font-size: 3.4rem;
+    color: #236b44;
+}
+
+/* ===== rodapé ===== */
+.footer {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #2d5b41;
+    border-top: 2px dashed #88c7ab;
+    padding-top: 1.8rem;
+    width: 100%;
+}
+
+/* ===== acessibilidade: alto contraste ===== */
+.high-contrast {
+    background: #0f1f17 !important;
+    color: #f1ffe7 !important;
+}
+.high-contrast .container {
+    background: #1a3326 !important;
+    color: #e7ffe0 !important;
+}
+.high-contrast .card {
+    background: #264d36 !important;
+    border-color: #8bc3a5 !important;
+    color: #f0fff0 !important;
+}
+.high-contrast .card p, 
+.high-contrast .card h3 {
+    color: #f0fff0 !important;
+}
+.high-contrast .curiosidades {
+    background: #1b452f !important;
+    border-left-color: #b0e6c9 !important;
+}
+.high-contrast .curiosidades li {
+    background: #2b5f42 !important;
+    color: white !important;
+}
+.high-contrast .quiz-box {
+    background: #1b3d2b !important;
+}
+.high-contrast .options label {
+    background: #326b4a !important;
+    color: white !important;
+}
+.high-contrast .btn-quiz {
+    background: #7bc99c !important;
+    color: #0a1f13 !important;
+}
+
+/* ===== acessibilidade: fonte grande ===== */
+.font-large {
+    font-size: 1.4rem !important;
+    line-height: 1.6 !important;
+}
+.font-large .card p, 
+.font-large .question, 
+.font-large li {
+    font-size: 1.5rem !important;
+}
+
+/* ===== responsividade ===== */
+@media (max-width: 640px) {
+    .container { 
+        padding: 1.5rem 1rem; 
+    }
+    .header h1 { 
+        font-size: 1.8rem; 
+    }
+    .accessibility-tools button { 
+        padding: 0.4rem 0.8rem; 
+        font-size: 0.9rem; 
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
